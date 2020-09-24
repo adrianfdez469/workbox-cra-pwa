@@ -28,7 +28,7 @@ ejecutar `yarn start` o `npm start`. Realiza la misma operación para la otra ap
 4- Crear el `sw.js`. 
 
 #### 1- Modificando el manifest.json
-En este fichero se configuran los elementos básicos de una PWA. Como por ejemplo el nombre, el color de fondo, entro otras elementos. No voy a detenerme a explicar cada detalle de este fichero, para más información visita este (link)[https://developer.mozilla.org/es/docs/Web/Manifest]. Aquí para que funcione con lo mínimos indispensable modificaremos la propiedad `"start_url": "."` por `"start_url": "/"`.
+En este fichero se configuran los elementos básicos de una PWA. Como por ejemplo el nombre, el color de fondo, entro otras elementos. No voy a detenerme a explicar cada detalle de este fichero, para más información visita este [link](https://developer.mozilla.org/es/docs/Web/Manifest). Aquí para que funcione con lo mínimos indispensable modificaremos la propiedad `"start_url": "."` por `"start_url": "/"`.
 
 #### 2- Registrando el service-worker
 Por defecto `create-react-app` nos brinda un grupo de funcionalidades y bondades que podemos utilizar para nuestro beneficio, la creación y el registro de los services-workers es una de ellas, sin embargo viene desabilitado por defecto. Para habilitarlo tenemos que modificar el fichero `/src/index.js`, cambiamos:
@@ -148,7 +148,7 @@ Lo segundo que haremos será cachear la respuesta de la petición que se realiza
 Aquí lo nuevo es que importamos `registerRoute` de `workbox-routing` y `NetworkFirst` de `workbox-strategies`.<br>
 `registerRoute` se usa para registrar las peticiones, y se le pasan 2 parametros, el 1ro puede ser un string, una expresion regular o una función que devuelva un boleano. Este se encarga de decidir si guardar en caché o no cualquier petición.<br>
 Como segundo parámetro se pasa la estrategia a seguir. Workbox define un grupo de estrategias las cuales son:
-`CacheFirst` `NetworkFirst` `CacheOnly` `NetworkOnly` y `StaleWhileRevalidate`, cada una de estas se utiliza en diferentes escenarios, dirígete al (sitio oficial)[https://developers.google.com/web/tools/workbox] de workbox para conocer sobre estas.
+`CacheFirst` `NetworkFirst` `CacheOnly` `NetworkOnly` y `StaleWhileRevalidate`, cada una de estas se utiliza en diferentes escenarios, dirígete al [sitio oficial](https://developers.google.com/web/tools/workbox) de workbox para conocer sobre estas.
 Específicamente en el código que vemos, cada vez que se responde a la petición  realizada a `http://localhost:3001/data`, esta se cachea en el navegador, y esa caché no se usa mientras la respuesta de esa petición  sea satisfactoria, en el momento en que se cae la conexión, entonces el service-worker busca los datos dentro de la cache y los devuelve como respuesta de la petición (esta es la manera en la que la estrategia NetworkFirst trabaja). La propiedad `cacheName` es el nombre de la cache donde se guardaran estos datos, para verlos abre en chrome Herramientas de desarrollador(F12) y en la pestaña "Aplicación" en el apartado "Cache" despliega "Cache Storage" y verás "server-data" con los datos de la respuesta de la petición (es posible que tengas que recargar el navegador antes de verlo).
 
 Por último, agregamos los elementos finales:
