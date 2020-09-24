@@ -1,61 +1,55 @@
-Link [Esto es un link](https://dir.com/asd/dasd)
-# H1
-## h2
-### `h3` con fondo gris
-`estas comillas ponen el fondo gris`
 
-# React PWA(Progressive Web App) o Aplicacion Web Progresiva creada con la herramienta [`create-react-app`](https://create-react-app.dev/docs/getting-started/)
+# React PWA(aplicación Web Progresiva) creada con la herramienta [`create-react-app`](https://create-react-app.dev/docs/getting-started/)
 
 ## Que herramientas se usan
-Para la demostracion se utiliza [`React`](https://es.reactjs.org/) como libreria principal para la construccion del demo, junto con [`Workbox`](https://developers.google.com/web/tools/workbox) que es un conjunto de bibliotecas y módulos de Node que facilitan el almacenamiento de los recursos en caché y aprovechan al máximo las funciones utilizadas para crear PWA.
+Para la demostración se utiliza [`React`](https://es.reactjs.org/) como librería principal para la construcción del demo, junto con [`Workbox`](https://developers.google.com/web/tools/workbox) que es un conjunto de bibliotecas y módulos de Node que facilitan el almacenamiento de los recursos en caché y aprovechan al máximo las funciones utilizadas para crear PWAs.
 
-### En que consiste la aplicacion
-La aplicacion es bastante sencilla, consta de un botón principal que al presionarlo, realiza una petición get a una `API-REST`, la cual devuelve un arreglo con usuairos, en los que cada uno tiene además del nombre y el id, una url con la direccion de la foto de ese usuario.<br>
+### En que consiste la aplicación
+La aplicación es bastante sencilla, consta de un botón principal que al presionarlo, realiza una petición get a una `API-REST`, la cual devuelve un arreglo con usuairos, cada uno tiene nombre,id y una url con la direccion de la foto de ese usuario en el API.<br>
 
-La aplicacion podra ser instalada en la PC o el Telefono como si fuera una aplicacion nativa dando la posibildad de ser usada con o sin conexion a internet. Siendo estas las caracteristicas principales de las PWA.
+La aplicación podra ser instalada en la PC o el Teléfono como si fuera una aplicación nativa dando la posibildad de ser usada con o sin conexión a internet, siendo estas, las características principales de las PWA.
 
-### Que aprenderán
-Aprenderas como editar la configuracion de `webpack` en una `create-react-app` para poder usar un `service-worker` personalizado.<br>
+### Que aprenderás
+Aprenderás a editar la configuración de `webpack` en una `create-react-app` para poder usar un `service-worker` personalizado.<br>
 
-### Como probar la aplicacion local en tu PC
-Para poder probar la aplicacion, debes clonar ese repositorio local en tu maquina, mediante la consola de comandos entrar a la carpeta raiz del proyecto y teniendo una conexion estable de internet ejecutar el comando `yarn` o `npm install`. 
+### Cómo probar la aplicación local en tu PC?
+Para poder probar la aplicación, debes clonar ese repositorio local en tu máquina, una vez clonado, mediante la consola de comandos entrar a la carpeta raíz del proyecto y teniendo una conexión estable de internet ejecutar el comando `yarn` o `npm install` para instalar las dependencias. 
 
-Después debes clonar el codigo del servidor api-rest [API](https://github.com/adrianfdez469/DUMY_API_REST_FOR_WORKBOX_TEST.git). Una vez clonado, mediante la consola de comandos entrar a la carpeta raiz y con una conexion estable de internet ejecutar el comando `yarn` o `npm install`.
+Después, debes clonar el código del servidor api-rest de la dirección [API](https://github.com/adrianfdez469/DUMY_API_REST_FOR_WORKBOX_TEST.git). Una vez clonado, mediante la consola de comandos entrar a la carpeta raíz y con una conexión estable de internet ejecutar el comando `yarn` o `npm install` para instalar las dependencias.
 
-Una vez terminado los 2 procesos anteriores debes poner a funcionar las dos aplicaciones. Comienza por el API(2do que clonaste), usando la consola de comandos, ubicado en la carpeta raiz 
-ejecutar `yarn start` o `npm start`. Ejecuta la misma operacion para la otra aplicacion (1ra que clonaste). Automaticamente se debe abrir el navegador (se necesitan chrome o firefox en versiones recientes para que funcionen las caracteristicas de PWA) en la direccion http://localhost:3000 con el demo, una vez que vayas interactuando con este, el mismo va a ir guardando los recursos en la cache del navegaror, puedes instalar la aplicacion en la computadora si deseas mediante un icono que aparece en la barra de direcciones en el extremo derecho. Despues de esto puedes cerrar los servidores completamente, cerrar y abrir la aplicacion, te darás cuenta que funciona al 100%. ☺
+Una vez terminado los 2 procesos anteriores debes poner a funcionar las dos aplicaciones. Comienza por el API-REST(2do que clonaste), usando la consola de comandos, ubicado en la carpeta raíz 
+ejecutar `yarn start` o `npm start`. Realiza la misma operación para la otra aplicación (1ra que clonaste). Automáticamente se debe abrir el navegador (se necesitan chrome o firefox en versiones recientes para que funcionen las características de PWA) en la direccion http://localhost:3000 con el demo, una vez que vayas interactuando con este, el mismo va a ir guardando los recursos en la cache del navegaror, puedes instalar la aplicación en la computadora si deseas mediante un icono que aparece en la barra de direcciones en el extremo derecho del navegador. Después de esto puedes cerrar los servidores completamente, cerrar y abrir la aplicación, te darás cuenta que funciona al 100% sin conexión. ☺
 
-### Pasos para crear esta convertir la app en un PWA
+### Pasos para convertir la app en un PWA
 1- Modificar manifest.json
 2- Habilitar el registro del service-worker en nuestra aplicación.
-3- Primero que todo debemos reconfigurar `webpack` para que use nuestra configuracion personalizada de workbox.
-3- Personalizar el archivo `serviceWorker.js` que se crea por defecto cuando usas `create-react-app`.
-4- Crear el `sw.js` que será el service-worker personalizado por nosotros que utilizará la aplicación. 
+3- Reconfigurar `webpack`.
+3- Personalizar el archivo `serviceWorker.js`.
+4- Crear el `sw.js`. 
 
 #### 1- Modificando el manifest.json
-En este fichero se configuran los elementos básicos de una PWA. Como por ejemplo el nombre, el color de fondo, entro otras cosas. No voy a detenerme a explicar cada detalle de este fichero, si necesitas saber mas visita este (link)[https://developer.mozilla.org/es/docs/Web/Manifest], aquí para que funcione con los minimos cambios modificamos la propiedad `"start_url": "."` por `"start_url": "/"`.
+En este fichero se configuran los elementos básicos de una PWA. Como por ejemplo el nombre, el color de fondo, entro otras elementos. No voy a detenerme a explicar cada detalle de este fichero, para más información visita este (link)[https://developer.mozilla.org/es/docs/Web/Manifest]. Aquí para que funcione con lo mínimos indispensable modificaremos la propiedad `"start_url": "."` por `"start_url": "/"`.
 
 #### 2- Registrando el service-worker
-Por defecto `create-react-app` nos brinda un grupo de funcionalidades y bondades que podemos utilizar para nuestro beneficio, y la creacion y registro de los services-workers es una de ellas, sin embargo viene desabilitado por defecto, por lo que para habilitarlo tenemos que modificar el fichero `/src/index.js`, cambiamos:
+Por defecto `create-react-app` nos brinda un grupo de funcionalidades y bondades que podemos utilizar para nuestro beneficio, la creación y el registro de los services-workers es una de ellas, sin embargo viene desabilitado por defecto. Para habilitarlo tenemos que modificar el fichero `/src/index.js`, cambiamos:
     serviceWorker.unregister();
 por
     serviceWorker.register();
-Esto por defecto habilita en nuestra aplicacion la creacion de un service-werker predeterminado webpack. <br>
-Hasta este punto, ya tenemos una PWA básica, en la cual se cachean los recursos estáticos, es decir los ficheros *.js, *.css y *.html que necesitan la SPA(Single Page Application) para funcionar, por lo que ya en este punto, podemos instalarla en la PC y trabajar con ella offline.<br> 
+Esto por defecto habilita en nuestra aplicación la creación de un service-werker predeterminado por webpack. <br>
+Hasta este punto, ya tenemos una PWA básica, en la cual se cachean los recursos estáticos, es decir los ficheros `*.js, *.css y *.html` que necesitan la SPA(Single Page Application) para funcionar, por lo que ya en este punto, podemos instalarla en la PC y trabajar con ella offline.<br> 
 Pero queda un detalle, cómo hacemos para cachear las peticiones, imágenes y otros recursos que necesita nuestro sitio para trabajar y son llamados bajo demanda?<br>
 En los próximos pasos, explicaremos que debemos hacer para lograr esto.
 
 
 #### 3- Reconfigurando webpack en una `create-react-app` 
-Debemos saber que a partir de la versión 2 de `create-react-app`, la configuracion de `webpack` incluye `workbox` de manera predeterminada como uno de sus plugins, en versiones anteriores no usaba webpack, sin embargo incluía otro plugin con funcionalidades similares. Por lo que tenemos que hacer algo para eliminar estos plugins si existen. Es valido aclarar que este demo está realizado con `create-react-app v2`.<br>
+Debemos saber que a partir de la versión 2 de `create-react-app`, la configuración de `webpack` incluye `workbox` de manera predeterminada como uno de sus plugins, en versiones anteriores no usaba webpack, sin embargo incluía otro plugin con funcionalidades similares. Por lo que tenemos que hacer algo para eliminar estos plugins si queremos agregar los nuestros propios. Es válido aclarar que este demo está realizado con `create-react-app v2`.<br>
 
-Para poder modificar la configuración predeterminada de webpack debemos instalar `react-app-rewired` mediante `npm install react-app-rewired --dev` o `yarn add react-app-rewired --dev`. Este leerá un archivo llamado `config.overrides.js` situado en el directorio raiz (donde se encuentra el `package.json`).<br>
+Para poder modificar la configuración predeterminada de webpack debemos instalar `react-app-rewired` mediante `npm install react-app-rewired --dev` o `yarn add react-app-rewired --dev`. Este leerá un archivo llamado `config-overrides.js` situado en el directorio raíz (donde se encuentra el `package.json`).<br>
 
 En este archivo debemos exportar un objeto con un atributo webpack, el cual contendrá una función que recive 2 parametros, config y enviroment.<br>
-`config` contiene el objeto de configuración que trae por defecto webpack, en este debemos eliminar los plugins que no usaremos y agregar el nuestro. Para esto instalaremos otros 2 paquetes de npm `yarn add workbox-webpack-plugin --dev` o `npm install workbox-webpack-plugin --dev` que permitirá inyectar el plugin de workbox a webpack y `yarn add react-app-rewire-unplug --dev` o `npm install react-app-rewire-unplug --dev` que permitirá eliminar plugins de la configuracion de webpack. 
+`config` contiene el objeto de configuración que trae por defecto webpack, en este debemos eliminar los plugins que no usaremos y agregar el nuestro. Para esto instalaremos otros 2 paquetes de npm `yarn add workbox-webpack-plugin --dev` o `npm install workbox-webpack-plugin --dev` que permitirá inyectar el plugin de workbox a webpack y `yarn add react-app-rewire-unplug --dev` o `npm install react-app-rewire-unplug --dev` que permitirá eliminar plugins de la configuración de webpack. 
 
-Veamos el codigo como queda.
-
+Veamos el código como queda.
     
     const workboxPlugin = require('workbox-webpack-plugin');
     const rewireUnplug = require('react-app-rewire-unplug');
@@ -79,7 +73,7 @@ Veamos el codigo como queda.
                 swDest: 'sw.js'
             }))
 
-            // Devolvemos la nueva configuracion de webpack
+            // Devolvemos la nueva configuración de webpack
             return config;
         }
     }
@@ -95,23 +89,29 @@ Depués de esto, para que react reconozca y use este archivo, tenemos que modifi
         ...
     }
 
-Y esta es la razon por la que los paquetes anteriormente instalados se incluyen solamente como dependencias de desarrollo `--dev`, ya que son usados solamente en tiempo de creacion `yarn start/nom start` o construccion `yarn build/nom build` del proyecto, pero antes de intentar realizar estas acciones `start o build` debemos crear el fichero `/public/sw.js`, el cual puedes dejar vacío por el momento.
+Y esta es la razón por la que los paquetes anteriormente instalados se incluyen solamente como dependencias de desarrollo `--dev`, ya que son usados solamente en tiempo de creación `yarn start/npm start` o construcción `yarn build/npm build` del proyecto, pero antes de intentar realizar estas acciones `start o build` debemos crear el fichero `/public/sw.js`, el cual puedes dejar vacío por el momento.
 
 #### Personalizando serviceWorker.js
-Este archivo es auto generado por `create-react-app` que a grandes rasgos, se encarga de realizar un grupo de validaciones y registrar en el navegador el `service-worker`, que en nuestro caso será `/public/sw.js` que creamos anteriormente. Por lo que tenemos que realizar las siguientes modificaciones:
+El archivo `/src/serviceWorker.js` es auto generado por `create-react-app` que a grandes rasgos, se encarga de realizar un grupo de validaciones y registrar en el navegador el `service-worker`, que en nuestro caso será `/public/sw.js` que creamos anteriormente. Por lo que tenemos que realizar las siguientes modificaciones:
 
-1- Para poder probar todo lo que haremos en desarrollo, en la funcion `register()` de `/ser/serviceWorker.js` comentareamos parte de la validacion del `if` como se muestra:
+1- Para poder probar todo lo que haremos en desarrollo, en la función `register()` de `/ser/serviceWorker.js` comentareamos parte de la validacion del `if` como se muestra:
+    ...
     if (/*process.env.NODE_ENV === 'production' && */'serviceWorker' in navigator) {
         //...
     }
-2- El segundo cambio que debemos hacer en la linea 35, dentro de esa misma funcion cambiar:
+    ...
+2- El segundo cambio lo debemos hacer en la linea 35, dentro de esa misma función cambiar:
+    ...
     const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+    ...
 por:
+    ...
     const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
+    ...
 
 #### Trabajando con el Service Worker (sw.js)
 Ha llegado el paso final, pero antes de explicar que haremos dentro del fichero `sw.js` hay algunas cuestiones sobre el funcionamiento de la app que debemos conocer.
-Lo que queremos lograr al final, es tener una aplicacion que funcione completamente offline, y la forma de lograrlo es convirtiendola en una PWA como hemos explicado hasta ahora. Pero qué significa esto? Significa que la aplicacion debe tener todos los recursos que necesita disponibles incluso cuando no tenga una coneccion a internet o el servidor de la aplicacion que provee el servicio esté caido. En la web la manera de lograr esto es guardando en la memoria caché del navegador todos estos recuros, desde los ficheros estaticos `*.js *.css *.html` hasta las peticiones e imágenes que se llaman bajo demanda, y es aquí donde entra workbox a cumplir su función.
+Lo que queremos lograr al final, es tener una aplicación que funcione completamente offline, y la forma de lograrlo es convirtiendola en una PWA como hemos explicado hasta ahora. Pero qué significa esto? Significa que la aplicación debe tener todos los recursos que necesita disponibles incluso cuando no tenga una conexión a internet o el servidor de la aplicación que provee el servicio esté caido. En la web la manera de lograr esto es guardando en la memoria caché del navegador todos estos recuros, desde los ficheros estáticos `*.js *.css *.html` hasta las peticiones e imágenes que se llaman bajo demanda, y es aquí donde entra workbox a cumplir su función.
 
 Existen varias maneras de incluir workbox en nuestro proyecto, mediane CDN o mediante módulos. Para este proyecto usaremos la segunda variante.
 Para empezar debemos intalar varios paquetes:<br>
@@ -126,9 +126,9 @@ Veamos el código:
     // eslint-disable-next-line no-restricted-globals
     precacheAndRoute(self.__WB_MANIFEST);
 
-Estas primeras lineas son practicamente obligatorias, `precacheAndRoute` se encarga de cachear todos los archivos estáticos que usa la aplicación para renderizarse, y el uso de `self.__WB_MANIFEST` es obligatorio en este archivo, si no lo pones en este fichero no funcioná nada en la pagina, verás un error alertardo que no se encuentra "self.__WB_MANIFEST" en sw.js y está dado porque él método InjectManifest (config-overrides.js) busca esta variable en este fichero y trata de sustituirla por un arreglo que contiene todos los recursos estáticos, para evitar este problema, siempre pon el codigo que mostré, por eso dije que era "obligatorio".<br>
+Estas primeras lineas son prácticamente obligatorias, `precacheAndRoute` se encarga de cachear todos los archivos estáticos que usa la aplicación para renderizarse, y el uso de `self.__WB_MANIFEST` es obligatorio en este archivo, si no lo pones en este fichero no funcioná nada en la página, verás un error alertardo que no se encuentra "self.__WB_MANIFEST" en sw.js y este error surge porque él método InjectManifest (el cual llamamos en config-overrides.js) busca esta variable en este fichero y trata de sustituirla por un arreglo que contiene todos los recursos estáticos, para evitar este problema, siempre pon el código que mostré, por eso dije que era "obligatorio" ☺.<br>
 
-Lo segundo que haremos será cachear la respuesta de la peticion que se realiza al API-SERVER el cual devuelve un json como respuesta, lo haremos agregando el siguiente codigo:
+Lo segundo que haremos será cachear la respuesta de la petición que se realiza al API-SERVER el cual devuelve un json como respuesta, lo haremos agregando el siguiente codigo:
 
     import {registerRoute} from 'workbox-routing';
     import {NetworkFirst} from 'workbox-strategies';
@@ -146,12 +146,12 @@ Lo segundo que haremos será cachear la respuesta de la peticion que se realiza 
     )
 
 Aquí lo nuevo es que importamos `registerRoute` de `workbox-routing` y `NetworkFirst` de `workbox-strategies`.<br>
-El primero se usa para registrar las peticiones, y se le pasan 2 parametros, el 1ro puede ser un string o una expresion regultar o una funcion boleana, este primer parámetro se encarga de decidir si guardar en caché o no cualquier petición.<br>
+`registerRoute` se usa para registrar las peticiones, y se le pasan 2 parametros, el 1ro puede ser un string, una expresion regular o una función que devuelva un boleano. Este se encarga de decidir si guardar en caché o no cualquier petición.<br>
 Como segundo parámetro se pasa la estrategia a seguir. Workbox define un grupo de estrategias las cuales son:
-`CacheFirst` `NetworkFirst` `CacheOnly` `NetworkOnly` `StaleWhileRevalidate` cada una de estas se utiliza en diferentes escenarios, dirígete al sitio oficial de workbox para conocer sobre estas.
-Especificamente en el codigo que vemos, lo que hace es que cada vez que responda la peticion realizada a http://localhost:3001/data esta se cachea en el navegador, y esa cache no se usa mientras la respuesta de esa peticion sea satisfactoria, en el momento en que se cae la conexion, entonces el service-worker busca los datos dentro de la cache y los devuelve como respuesta de la petición. La propiedad `cacheName` es el nombre de la cache donde se guardaran estos datos, para verlos abre en chrome Herramientas de desarrollador(F12) y en la pestaña "Aplicación" en el apartado "Cache" despliega "Cache Storage" y verás "server-data" con los datos de la respuesta de la petición (es posible que tengas que recargar el navegador antes de verlo).
+`CacheFirst` `NetworkFirst` `CacheOnly` `NetworkOnly` y `StaleWhileRevalidate`, cada una de estas se utiliza en diferentes escenarios, dirígete al (sitio oficial)[https://developers.google.com/web/tools/workbox] de workbox para conocer sobre estas.
+Específicamente en el código que vemos, cada vez que se responde a la petición  realizada a `http://localhost:3001/data`, esta se cachea en el navegador, y esa caché no se usa mientras la respuesta de esa petición  sea satisfactoria, en el momento en que se cae la conexión, entonces el service-worker busca los datos dentro de la cache y los devuelve como respuesta de la petición (esta es la manera en la que la estrategia NetworkFirst trabaja). La propiedad `cacheName` es el nombre de la cache donde se guardaran estos datos, para verlos abre en chrome Herramientas de desarrollador(F12) y en la pestaña "Aplicación" en el apartado "Cache" despliega "Cache Storage" y verás "server-data" con los datos de la respuesta de la petición (es posible que tengas que recargar el navegador antes de verlo).
 
-Por ultimo, agregamos los elementos finales:
+Por último, agregamos los elementos finales:
 
     import {registerRoute} from 'workbox-routing';
     import {NetworkFirst, StaleWhileRevalidate} from 'workbox-strategies';
@@ -184,9 +184,10 @@ Por ultimo, agregamos los elementos finales:
         })
     )
 
-Esta última modificación permite aplicar la estrategia `StaleWhileRevalidate` a las peticiones que comienzan con el patrón definido en el codigo `http://localhost:3001/public/images/avatars/`. Esta estrategia funciona de la siguiente manera, la primera vez que se realiza la peticion, al responder, se guardan en chaché y se envia la respuesta al navegador, de ahi en adelante, la respuesta simpre se busca en la caché, sin embargo se realiza la petición tambien para actualizar esta caché, muy util para avatares de perfiles de usuarios de contactos, y situaciones similares. En este ejemplo se incorpora a la estrategia un plugin de expiracion, al cual se le configura cantidad maxima de recursos y el tiempo maximo a permanecer en caché.
+Esta última modificación permite aplicar la estrategia `StaleWhileRevalidate` a las peticiones que comienzan con el patrón definido en el código (`http://localhost:3001/public/images/avatars/`). Esta estrategia funciona de la siguiente manera, la primera vez que se realiza la petición, la respuesta se guarda en chaché y a su vez se envía  al navegador, posteriormente, para las próximas peticiones, la respuesta simpre se busca en la caché, sin embargo se realiza la petición también para actualizar esta caché, muy útil para avatares de perfiles de usuarios de contactos, y situaciones similares, tal y como se usa aquí. En este ejemplo se incorpora a la estrategia un plugin de expiracion, al cual se le configura cantidad maxima de recursos y el tiempo máximo a permanecer en caché.
 
 #### Conclusiones
-Con esto terminamos!!! ☻
+Usa las funciones de desarrollador(F12) para ver todos los datos que han sido guardados en caché, incluyendo las imagenes (las veras bajo la caché llamada `image-cache` y la peticion al api-rest bajo la caché llamada 'server-data'). La otra caché bajo el nombre `workbox-precache-V2...` es la que se crea por defecto al usar la función `precacheAndRoute`, en esta verás los archivos estáticos que fueron guardados.
+Con esto terminamos, espero que hayan aprendido algo nuevo!!! ☺
 
 
